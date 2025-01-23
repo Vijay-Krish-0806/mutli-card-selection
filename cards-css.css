@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Playball&family=Nunito+Sans:wght@400;500&display=swap");
+
+:root {
+  --bg-color: #ffffff;
+  --card-bg: white;
+  --text-color: #797777;
+  --heading-color: black;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --icon-color: var(--card-bg);
+}
+
+#dark-theme:checked ~ .main-container {
+  --bg-color: #313131;
+  --card-bg: #545454;
+  --text-color: #ffffff;
+  --heading-color: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --icon-color: white;
+}
+
+#dark-theme {
+  position: absolute;
+  left: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body {
+  display: flex;
+  justify-content: center;
+  background-color: var(--bg-color);
+} */
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: max-content;
+  background-color: var(--bg-color);
+  padding: 20px;
+}
+
+.card {
+  flex: 0 0 260px;
+  height: 350px;
+  position: relative;
+  border-radius: 10px;
+  background-color: var(--card-bg);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+}   
+
+.header {
+  padding: 15px;
+  height: 25%;
+  border-radius: 10px 10px 0 0;
+  i {
+    color: var(--icon-color);
+    font-size: 1.2rem;
+  }
+}
+
+.content {
+  padding: 0 32px;
+  height: 75%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: -50px;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+h2 {
+  font-family: "Playball";
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: var(--heading-color);
+}
+
+p {
+  font-family: "Nunito Sans";
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+.social-links {
+  margin-top: 25px;
+  display: flex;
+  gap: 16px;
+  a i {
+    color: var(--heading-color);
+    opacity: 0.5;
+  }
+}
+a:hover i {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.card input[type="checkbox"] {
+  position: absolute;
+  right: 10px;
+  top: 3.5%;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid white;
+  appearance: none;
+}
+
+.card input[type="checkbox"]:checked ~ .header {
+  background-color: white;
+}
+
+.card input[type="checkbox"]:checked ~ .content p,
+.card input[type="checkbox"]:checked ~ .content h2,
+.card input[type="checkbox"]:checked ~ .content .social-links a i {
+  color: white;
+  opacity: 1;
+}
+
+.card1 {
+  --card-color: rgb(189, 7, 30);
+}
+.card2 {
+  --card-color: #3b599a;
+}
+.card3 {
+  --card-color: #c13584;
+}
+.card4 {
+  --card-color: #1869ff;
+}
+.card5 {
+  --card-color: #ea4c88;
+}
+.card6 {
+  --card-color: #1ca1f1;
+}
+.card7 {
+  --card-color: #f57f01;
+}
+.card8 {
+  --card-color: #0177b6;
+}
+
+.card input[type="checkbox"]:checked {
+  border-color: var(--card-color);
+}
+
+.card input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: var(--card-color);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-weight: 900;
+}
+
+.card .header {
+  background-color: var(--card-color);
+}
+
+.card .profile-image {
+  box-shadow: 0 0 10px var(--card-color);
+}
+
+.card input[type="checkbox"]:checked ~ .content {
+  background-color: var(--card-color);
+  color: white;
+}
+
+.card input[type="checkbox"]:checked ~ .header i {
+  color: var(--card-color);
+}
+
+#dark-theme:checked ~ .main-container .card {
+  box-shadow: 2px 2px 8px rgb(155, 154, 154);
+}
+
+#dark-theme:checked + .main-container label input:checked {
+  border: 2px solid white;
+  &::after {
+    color: white;
+  }
+  & ~ .header {
+    background-color: var(--card-bg);
+    i {
+      color: var(--icon-color);
+    }
+  }
+}
